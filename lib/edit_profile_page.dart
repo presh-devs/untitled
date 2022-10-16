@@ -185,7 +185,7 @@ class _EditProfileState extends State<EditProfile> {
                         borderRadius: BorderRadius.circular(18),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: updateData,
                     child: const Text('Save'),
                   ),
                 ],
