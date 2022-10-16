@@ -16,7 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        textTheme:GoogleFonts.latoTextTheme(Theme.of(context).textTheme,),
+        textTheme: GoogleFonts.latoTextTheme(
+          Theme.of(context).textTheme,
+        ),
       ),
       home: const MyHomePage(),
     );
@@ -38,39 +40,3 @@ class _MyHomePageState extends State<MyHomePage> {
     return LoginPage();
   }
 }
-
-//
-// bottomNavigationBar: ClipRRect(
-// borderRadius: BorderRadius.all(
-// Radius.circular(10),
-// ),
-// child: BottomNavigationBar(
-// elevation: 1,
-// showUnselectedLabels: false,
-// showSelectedLabels: false,
-// backgroundColor: Colors.blue, //TOD0: change color
-//
-// items: [
-// BottomNavigationBarItem(
-// icon: Icon(Icons.close), // TODO: change icon
-// label: 'Home',
-// ),
-// BottomNavigationBarItem(
-// label: 'Chat',
-// icon: Icon(Icons.close),
-// ), // TODO: change icon),
-// BottomNavigationBarItem(
-// label: 'Home',
-// icon: Icon(Icons.close),
-// ), // TODO: change icon),
-// BottomNavigationBarItem(
-// label: 'Home',
-// icon: Icon(Icons.close),
-// ), // TODO: change icon),
-// BottomNavigationBarItem(
-// label: 'Home',
-// icon: Icon(Icons.close),
-// ), // TODO: change icon),
-// ],
-// ),
-// ),

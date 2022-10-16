@@ -38,157 +38,101 @@ class _EditProfileState extends State<EditProfile> {
           child: Padding(
             padding: const EdgeInsets.all(22.0),
             child: Card(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    color: kAccentColor,
-                    height: 100,
-                    width: double.infinity,
-                    child: Row(children: [
-                      const CircleAvatar(
-                        radius: 40,
-                      ),
-                      Column(
-                        children: const [
-                          Text(
-                            'MrNiB',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: kPrimaryColor,
-                            ),
+              child: Padding(
+                padding: const EdgeInsets.all(22.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      color: kAccentColor,
+                      height: 100,
+                      width: double.infinity,
+                      child: Row(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: const CircleAvatar(
+                            radius: 40,
                           ),
-                          Text(
-                            'Profile Setting',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w400,
-                              color: kPrimaryColor,
-                            ),
-                          ),
-                        ],
-                      )
-                    ]),
-                  ),
-                  const Text(
-                    'Username',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: kPrimaryColor,
+                        ),
+                        Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'MrNiB',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                    color: kPrimaryColor,
+                                  ),
+                                ),
+                                Text(
+                                  'Profile Setting',
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w400,
+                                    color: kPrimaryColor,
+                                  ),
+                                ),
+                              ],
+                            )),
+                      ]),
                     ),
-                  ),
-                  buildTextField(
-                      icon: const Text(''),
-                      controller: _userNameController,
-                      label: ''),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
-                    'Name',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: kPrimaryColor,
+                    const SizedBox(
+                      height: 15,
                     ),
-                  ),
-                  buildTextField(
-                      icon: const Text(''),
-                      controller: _nameController,
-                      label: ''),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
-                    'Email',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: kPrimaryColor,
+                    buildTextField(
+                        controller: _userNameController, label: 'Username'),
+                    const SizedBox(
+                      height: 15,
                     ),
-                  ),
-                  buildTextField(
-                      icon: const Text(''),
-                      controller: _emailController,
-                      label: ''),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
-                    'Phone Number',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: kPrimaryColor,
+                    buildTextField(controller: _nameController, label: 'Name'),
+                    const SizedBox(
+                      height: 15,
                     ),
-                  ),
-                  buildTextField(
-                      icon: const Text(''),
-                      controller: _numberController,
-                      label: ''),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
-                    'New Password',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: kPrimaryColor,
+                    buildTextField(
+                        controller: _emailController, label: 'Email'),
+                    const SizedBox(
+                      height: 15,
                     ),
-                  ),
-                  buildTextField(
-                      icon: const Text(''),
-                      controller: _newpasswwordController,
-                      label: ''),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
-                    'Phone Number',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: kPrimaryColor,
+                    buildTextField(
+                        controller: _numberController, label: 'Phone Number'),
+                    const SizedBox(
+                      height: 15,
                     ),
-                  ),
-                  buildTextField(
-                      icon: const Text(''),
-                      controller: _currentpasswwordController,
-                      label: ''),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
-                    'Gender',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: kPrimaryColor,
+                    buildTextField(
+                        controller: _newpasswwordController,
+                        label: 'New Password'),
+                    const SizedBox(
+                      height: 15,
                     ),
-                  ),
-                  buildTextField(
-                      icon: const Text(''),
-                      controller: _genderController,
-                      label: ''),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: kPrimaryColor,
-                      side: const BorderSide(color: kPrimaryColor),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
+                    buildTextField(
+                        controller: _currentpasswwordController,
+                        label: 'Current Password'),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    buildTextField(
+                        controller: _genderController, label: 'Gender'),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: kPrimaryColor,
+                        side: const BorderSide(color: kPrimaryColor),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
                       ),
+                      onPressed: updateData,
+                      child: const Text('Save'),
                     ),
-                    onPressed: updateData,
-                    child: const Text('Save'),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -197,10 +141,10 @@ class _EditProfileState extends State<EditProfile> {
     );
   }
 
-  TextField buildTextField(
-      {required TextEditingController controller,
-      required String label,
-      required Widget icon}) {
+  TextField buildTextField({
+    required TextEditingController controller,
+    required String label,
+  }) {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
@@ -220,8 +164,12 @@ class _EditProfileState extends State<EditProfile> {
             ),
           ),
         ),
-        prefixIcon: icon,
         hintText: label,
+        labelStyle: const TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+          color: kAccentColor,
+        ),
       ),
     );
   }

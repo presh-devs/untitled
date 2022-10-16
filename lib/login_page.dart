@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled/api_service.dart';
 import 'package:untitled/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
         password: passwordController.text,
       );
       print(ApiService().token);
-      if (ApiService().token != null) {
+      if (ApiService().statusCode == 200) {
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => const EditProfile()));
       } else {
@@ -50,36 +51,49 @@ class _LoginPageState extends State<LoginPage> {
             ClipPath(
               clipper: CustomClipPath(),
               child: Container(
-                color: kAccentColor,
+                color: Color(0xffEBF0FF),
                 height: 400,
                 width: double.infinity,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      'Welcome to',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      textAlign: TextAlign.left,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(width: 125),
+                        const Text(
+                          'Welcome to',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
                     ),
-                    Text(
-                      'RAKTAPP',
-                      style: TextStyle(
-                        fontSize: 52,
-                        fontWeight: FontWeight.w700,
-                      ),
+                    Row(
+                      children: [
+                        SizedBox(width: 125),
+                        Text(
+                          'RAKTAPP',
+                          style: GoogleFonts.rubik(
+                            fontSize: 52,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: 50,
+                    const SizedBox(
+                      height: 45,
                     ),
-                    Text(
-                      'Sign in to continue',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        color: kPrimaryColor,
+                    Center(
+                      child: const Text(
+                        ' Sign in to continue',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: kPrimaryColor,
+                        ),
                       ),
                     ),
                   ],
@@ -92,7 +106,9 @@ class _LoginPageState extends State<LoginPage> {
                 buildTextField(
                   controller: emailController,
                   label: 'Username/Email',
-                  icon: SvgPicture.asset('assets/images/username.svg'),
+                  icon: SvgPicture.asset(
+                    'assets/images/username.svg',
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -100,7 +116,9 @@ class _LoginPageState extends State<LoginPage> {
                 buildTextField(
                   controller: passwordController,
                   label: 'Password',
-                  icon: SvgPicture.asset('assets/images/Lock.svg'),
+                  icon: SvgPicture.asset(
+                    'assets/images/Lock.svg',
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -122,13 +140,16 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.w700),
                   ),
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       height: 1,
                       width: 150,
-                      color: Colors.black,
+                      color: kAccentColor,
                     ),
                     const Text(
                       '    OR    ',
@@ -141,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       height: 1,
                       width: 150,
-                      color: Colors.black,
+                      color: kAccentColor,
                     ),
                   ],
                 ),
@@ -149,22 +170,29 @@ class _LoginPageState extends State<LoginPage> {
                   height: 30,
                 ),
                 buildSocialLoginButton(
-                  icon: 'assets/images/Frame',
+                  icon: 'assets/images/Group.svg',
                   title: 'Login with Google',
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 buildSocialLoginButton(
-                  icon: 'assets/images/Frame',
+                  icon: 'assets/images/Frame.svg',
                   title: 'Login with Facebook',
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                // const SizedBox(
+                //   height: 20,
+                // ),
                 TextButton(
                   onPressed: () {},
-                  child: const Text('Forgot Password?'),
+                  child: const Text(
+                    'Forgot Password?',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: kPrimaryColor,
+                    ),
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -172,17 +200,17 @@ class _LoginPageState extends State<LoginPage> {
                     const Text(
                       "Don't have an account?",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
                         fontWeight: FontWeight.w400,
-                        color: kAccentColor,
+                        color: Color(0xff9098B1),
                       ),
                     ),
                     TextButton(
                       onPressed: () {},
                       child: const Text(
                         'Sign up',
-                        style: const TextStyle(
-                          fontSize: 12,
+                        style: TextStyle(
+                          fontSize: 14,
                           fontWeight: FontWeight.w400,
                           color: kPrimaryColor,
                         ),
@@ -242,7 +270,14 @@ class _LoginPageState extends State<LoginPage> {
         ),
         child: ListTile(
           leading: SvgPicture.asset(icon),
-          title: Text(title),
+          title: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: kPrimaryColor,
+            ),
+          ),
         ));
   }
 }
@@ -279,37 +314,3 @@ class CustomClipPath extends CustomClipper<Path> {
     return false;
   }
 }
-// class RPSCustomPainter extends CustomPainter{
-//
-//   @override
-//   void paint(Canvas canvas, Size size) {
-//
-//
-//
-//     Paint paint0 = Paint()
-//       ..color = const Color.fromARGB(255, 33, 150, 243)
-//       ..style = PaintingStyle.stroke
-//       ..strokeWidth = 1;
-//
-//
-//     Path path0 = Path();
-//     path0.moveTo(size.width*0.0012500,size.height*0.0080000);
-//     path0.lineTo(size.width*0.0037500,size.height*0.9860000);
-//     path0.quadraticBezierTo(size.width*0.1079250,size.height*0.6927000,size.width*0.2513375,size.height*0.7029800);
-//     path0.cubicTo(size.width*0.3760375,size.height*0.7028400,size.width*0.6243969,size.height*0.6992450,size.width*0.7487500,size.height*0.6980000);
-//     path0.quadraticBezierTo(size.width*0.9754250,size.height*0.6779600,size.width*0.9950000,size.height*0.4580000);
-//     path0.lineTo(size.width*0.9962500,size.height*0.0060000);
-//     path0.lineTo(size.width*0.0012500,size.height*0.0080000);
-//     path0.close();
-//
-//     canvas.drawPath(path0, paint0);
-//
-//
-//   }
-//
-//   @override
-//   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-//     return true;
-//   }
-//
-// }
