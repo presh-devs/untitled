@@ -314,22 +314,15 @@ class CustomClipPath extends CustomClipper<Path> {
     double h = size.height;
 
     Path path0 = Path();
-    path0.moveTo(size.width * 0.0050000, size.height * 0.0060000);
-    path0.lineTo(size.width * 0.0037500, size.height * 0.9920000);
-    path0.quadraticBezierTo(size.width * 0.1053250, size.height * 0.7288200,
-        size.width * 0.3001375, size.height * 0.6973400);
-    path0.cubicTo(
-        size.width * 0.4124594,
-        size.height * 0.6963950,
-        size.width * 0.6416125,
-        size.height * 0.6950600,
-        size.width * 0.7494250,
-        size.height * 0.6935600);
-    path0.quadraticBezierTo(size.width * 0.9149500, size.height * 0.6517200,
-        size.width * 0.9550375, size.height * 0.4329600);
-    path0.lineTo(size.width * 0.9566625, size.height * 0.0022200);
-    path0.lineTo(size.width * 0.0050000, size.height * 0.0060000);
+    path0.moveTo(size.width*0.0037500,size.height*0.0060000);
+    path0.lineTo(size.width*0.0025000,size.height*0.9860000);
+    path0.quadraticBezierTo(size.width*0.0871750,size.height*0.7344800,size.width*0.2375000,size.height*0.6980000);
+    path0.cubicTo(size.width*0.3640969,size.height*0.6975550,size.width*0.6172906,size.height*0.6966650,size.width*0.7438875,size.height*0.6962200);
+    path0.quadraticBezierTo(size.width*0.9373000,size.height*0.6663600,size.width*0.9958375,size.height*0.4968800);
+    path0.lineTo(size.width*0.9950000,size.height*0.0080000);
+    path0.lineTo(size.width*0.0037500,size.height*0.0060000);
     path0.close();
+
 
     return path0;
   }

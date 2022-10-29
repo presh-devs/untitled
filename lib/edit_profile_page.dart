@@ -133,12 +133,19 @@ class _EditProfileState extends State<EditProfile> {
                         ),
                       ),
                       onPressed: () {
-                        log('here');
+
                         updateData(widget.token);
-                        ScaffoldMessenger.of(context)
+                        if(_newPasswordController.text.isNotEmpty && _currentPasswordController.text.isNotEmpty && _emailController.text.isNotEmpty &&_userNameController.text.isNotEmpty
+                        && _numberController.text.isNotEmpty &&_genderController.text.isNotEmpty
+                        ){ScaffoldMessenger.of(context)
                             .showSnackBar(const SnackBar(
-                          content: Text('Update Sucessful'),
-                        ));
+                          content: Text('Update Successful'),
+                        ));}else{
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text('Empty Fields not allowed'),
+                          ));
+                        }
                       },
                       child: const Text('Save'),
                     ),
