@@ -1,29 +1,33 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:untitled/constants.dart';
 
 import 'api_service.dart';
 
 class EditProfile extends StatefulWidget {
-  const EditProfile({Key? key}) : super(key: key);
+  final String token;
+  const EditProfile({Key? key, required this.token}) : super(key: key);
 
   @override
   State<EditProfile> createState() => _EditProfileState();
 }
 
 class _EditProfileState extends State<EditProfile> {
-  final _newpasswwordController = TextEditingController();
-  final _currentpasswwordController = TextEditingController();
+  final _newPasswordController = TextEditingController();
+  final _currentPasswordController = TextEditingController();
   final _emailController = TextEditingController();
   final _userNameController = TextEditingController();
   final _nameController = TextEditingController();
   final _numberController = TextEditingController();
   final _genderController = TextEditingController();
 
-  Future<void> updateData() async {
+  Future<void> updateData(String token) async {
     await ApiService().updateUserData(
+      token: token,
       username: _userNameController.text,
-      newPassword: _newpasswwordController.text,
-      currentPassword: _currentpasswwordController.text,
+      newPassword: _newPasswordController.text,
+      currentPassword: _currentPasswordController.text,
       email: _emailController.text,
       phoneNumber: _numberController.text,
       gender: _genderController.text,
@@ -104,13 +108,13 @@ class _EditProfileState extends State<EditProfile> {
                       height: 15,
                     ),
                     buildTextField(
-                        controller: _newpasswwordController,
+                        controller: _newPasswordController,
                         label: 'New Password'),
                     const SizedBox(
                       height: 15,
                     ),
                     buildTextField(
-                        controller: _currentpasswwordController,
+                        controller: _currentPasswordController,
                         label: 'Current Password'),
                     const SizedBox(
                       height: 15,
@@ -128,7 +132,14 @@ class _EditProfileState extends State<EditProfile> {
                           borderRadius: BorderRadius.circular(18),
                         ),
                       ),
-                      onPressed: updateData,
+                      onPressed: () {
+                        log('here');
+                        updateData(widget.token);
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text('Update Sucessful'),
+                        ));
+                      },
                       child: const Text('Save'),
                     ),
                   ],
