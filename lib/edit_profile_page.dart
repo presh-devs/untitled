@@ -36,6 +36,7 @@ class _EditProfileState extends State<EditProfile> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -50,7 +51,7 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     Container(
                       color: kAccentColor,
-                      height: 100,
+                      height: height * 0.1,
                       width: double.infinity,
                       child: Row(children: [
                         Padding(
@@ -85,44 +86,44 @@ class _EditProfileState extends State<EditProfile> {
                             )),
                       ]),
                     ),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: height * 0.015,
                     ),
                     buildTextField(
                         controller: _userNameController, label: 'Username'),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: height * 0.015,
                     ),
                     buildTextField(controller: _nameController, label: 'Name'),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: height * 0.015,
                     ),
                     buildTextField(
                         controller: _emailController, label: 'Email'),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: height * 0.015,
                     ),
                     buildTextField(
                         controller: _numberController, label: 'Phone Number'),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: height * 0.015,
                     ),
                     buildTextField(
                         controller: _newPasswordController,
                         label: 'New Password'),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: height * 0.015,
                     ),
                     buildTextField(
                         controller: _currentPasswordController,
                         label: 'Current Password'),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: height * 0.015,
                     ),
                     buildTextField(
                         controller: _genderController, label: 'Gender'),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: height * 0.015,
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -133,14 +134,18 @@ class _EditProfileState extends State<EditProfile> {
                         ),
                       ),
                       onPressed: () {
-
                         updateData(widget.token);
-                        if(_newPasswordController.text.isNotEmpty && _currentPasswordController.text.isNotEmpty && _emailController.text.isNotEmpty &&_userNameController.text.isNotEmpty
-                        && _numberController.text.isNotEmpty &&_genderController.text.isNotEmpty
-                        ){ScaffoldMessenger.of(context)
-                            .showSnackBar(const SnackBar(
-                          content: Text('Update Successful'),
-                        ));}else{
+                        if (_newPasswordController.text.isNotEmpty &&
+                            _currentPasswordController.text.isNotEmpty &&
+                            _emailController.text.isNotEmpty &&
+                            _userNameController.text.isNotEmpty &&
+                            _numberController.text.isNotEmpty &&
+                            _genderController.text.isNotEmpty) {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text('Update Successful'),
+                          ));
+                        } else {
                           ScaffoldMessenger.of(context)
                               .showSnackBar(const SnackBar(
                             content: Text('Empty Fields not allowed'),

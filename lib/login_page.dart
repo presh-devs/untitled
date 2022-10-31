@@ -15,6 +15,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
   Future<void> login() async {
     if (emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
       var response = await ApiService().login(
@@ -50,6 +51,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -61,8 +64,8 @@ class _LoginPageState extends State<LoginPage> {
               ClipPath(
                 clipper: CustomClipPath(),
                 child: Container(
-                  color: Color(0xffEBF0FF),
-                  height: 400,
+                  color: Color(0x99EBF0FF),
+                  height: height * 0.4,
                   width: double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Row(
                         children: [
-                          SizedBox(width: 125),
+                          SizedBox(width: width * 0.23),
                           const Text(
                             'Welcome to',
                             style: TextStyle(
@@ -83,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Row(
                         children: [
-                          SizedBox(width: 125),
+                          SizedBox(width: width * 0.23),
                           Text(
                             'RAKTAPP',
                             style: GoogleFonts.rubik(
@@ -93,11 +96,11 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 45,
+                      SizedBox(
+                        height: height * 0.025,
                       ),
                       Center(
-                        child: const Text(
+                        child: Text(
                           ' Sign in to continue',
                           style: TextStyle(
                             fontSize: 16,
@@ -111,8 +114,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                    left: 22.0, right: 22, top: 320, bottom: 22),
+                padding: EdgeInsets.only(
+                    left: 22.0, right: 22, top: height * 0.33, bottom: 22),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     mainAxisSize: MainAxisSize.min,
@@ -129,8 +132,8 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: height * 0.01,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 26),
@@ -144,8 +147,8 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: height * 0.02,
                       ),
                       ElevatedButton(
                         onPressed: login,
@@ -164,41 +167,41 @@ class _LoginPageState extends State<LoginPage> {
                               fontWeight: FontWeight.w700),
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: height * 0.01,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
                             height: 1,
-                            width: 150,
-                            color: kAccentColor,
+                            width: width * 0.35,
+                            color: Color(0xb39098B1),
                           ),
                           const Text(
                             '    OR    ',
                             style: TextStyle(
                               fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: kPrimaryColor,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xff9098B1),
                             ),
                           ),
                           Container(
                             height: 1,
-                            width: 150,
-                            color: kAccentColor,
+                            width: width * 0.35,
+                            color: Color(0xb39098B1),
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 30,
+                      SizedBox(
+                        height: height * 0.03,
                       ),
                       buildSocialLoginButton(
                         icon: 'assets/images/Group.svg',
                         title: 'Login with Google',
                       ),
-                      const SizedBox(
-                        height: 15,
+                      SizedBox(
+                        height: height * 0.015,
                       ),
                       buildSocialLoginButton(
                         icon: 'assets/images/Frame.svg',
@@ -314,15 +317,22 @@ class CustomClipPath extends CustomClipper<Path> {
     double h = size.height;
 
     Path path0 = Path();
-    path0.moveTo(size.width*0.0037500,size.height*0.0060000);
-    path0.lineTo(size.width*0.0025000,size.height*0.9860000);
-    path0.quadraticBezierTo(size.width*0.0871750,size.height*0.7344800,size.width*0.2375000,size.height*0.6980000);
-    path0.cubicTo(size.width*0.3640969,size.height*0.6975550,size.width*0.6172906,size.height*0.6966650,size.width*0.7438875,size.height*0.6962200);
-    path0.quadraticBezierTo(size.width*0.9373000,size.height*0.6663600,size.width*0.9958375,size.height*0.4968800);
-    path0.lineTo(size.width*0.9950000,size.height*0.0080000);
-    path0.lineTo(size.width*0.0037500,size.height*0.0060000);
+    path0.moveTo(size.width * 0.0037500, size.height * 0.0060000);
+    path0.lineTo(size.width * 0.0025000, size.height * 0.9860000);
+    path0.quadraticBezierTo(size.width * 0.0871750, size.height * 0.7344800,
+        size.width * 0.2375000, size.height * 0.6980000);
+    path0.cubicTo(
+        size.width * 0.3640969,
+        size.height * 0.6975550,
+        size.width * 0.6172906,
+        size.height * 0.6966650,
+        size.width * 0.7438875,
+        size.height * 0.6962200);
+    path0.quadraticBezierTo(size.width * 0.9373000, size.height * 0.6663600,
+        size.width * 0.9958375, size.height * 0.4968800);
+    path0.lineTo(size.width * 0.9950000, size.height * 0.0080000);
+    path0.lineTo(size.width * 0.0037500, size.height * 0.0060000);
     path0.close();
-
 
     return path0;
   }
@@ -350,3 +360,5 @@ class CustomClipPath extends CustomClipper<Path> {
 // path0.lineTo(size.width * 0.9962500, size.height * 0.0060000);
 // path0.lineTo(size.width * 0.0012500, size.height * 0.0080000);
 // path0.close();
+// width = MediaQuery.of(context).size.width;
+// height = MediaQuery.of(context).size.height;
